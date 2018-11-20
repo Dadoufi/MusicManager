@@ -29,7 +29,7 @@
             android:layout_marginStart="@dimen/margin_very_small"
             android:layout_marginEnd="@dimen/margin_very_small"
             android:ellipsize="end"
-            android:maxLines="2"
+        android:singleLine="true"
             android:textAppearance="@style/TextAppearance.MusicManager.AlbumTitle"
             app:layout_constraintEnd_toStartOf="@+id/save"
             app:layout_constraintStart_toEndOf="@id/image"
