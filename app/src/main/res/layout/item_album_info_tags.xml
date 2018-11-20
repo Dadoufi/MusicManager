@@ -1,0 +1,14 @@
+<com.google.android.material.chip.ChipGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            android:id="@+id/chipGroup"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginStart="@dimen/margin_normal"
+                                            android:layout_marginTop="@dimen/margin_small"
+                                            android:layout_marginEnd="@dimen/margin_normal"
+                                            android:animateLayoutChanges="true"
+                                            app:chipSpacing="@dimen/margin_very_small"
+                                            app:layout_constraintTop_toBottomOf="@+id/albumInformation">
+
+</com.google.android.material.chip.ChipGroup>

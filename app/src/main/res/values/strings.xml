@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MusicManager</string>
+
+    <string name="empty_favorites">No favorite albums added</string>
+    <string name="favorites">Favorites</string>
+    <string name="search_hint">Search Artist</string>
+    <string name="album_info">Released on %1$s · %2$d songs · %3$s · %4$s · %5$s</string>
+    <string name="retry">Retry</string>
+    <string name="tracks">Tracks</string>
+
+
+</resources>

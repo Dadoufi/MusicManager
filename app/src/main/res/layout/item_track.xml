@@ -1,0 +1,63 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:id="@+id/parent"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:paddingTop="@dimen/margin_very_small"
+                                                   android:paddingEnd="@dimen/margin_normal"
+                                                   android:paddingBottom="@dimen/margin_normal">
+
+    <TextView
+            android:id="@+id/trackNumber"
+            android:layout_width="@dimen/thumb_size"
+            android:layout_height="@dimen/thumb_size"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.MusicManager.TrackNumber"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1"/>
+
+
+    <TextView
+            android:id="@+id/trackTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_very_small"
+            android:layout_marginEnd="@dimen/margin_very_small"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.MusicManager.AlbumTitle"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/trackNumber"
+            app:layout_constraintTop_toTopOf="@+id/trackNumber"
+            tools:text=" Title"/>
+
+
+    <TextView
+            android:id="@+id/duration"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_very_small"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.MusicManager.ListSecondary"
+            app:layout_constraintBottom_toBottomOf="@+id/trackNumber"
+            app:layout_constraintEnd_toEndOf="@+id/trackTitle"
+            app:layout_constraintStart_toStartOf="@+id/trackTitle"
+            app:layout_constraintTop_toBottomOf="@+id/guideline"
+            tools:text="2:45"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

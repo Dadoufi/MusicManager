@@ -1,0 +1,157 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+androidExtensions {
+    experimental = true
+}
+apply plugin: 'kotlin-kapt'
+kapt {
+    correctErrorTypes = true
+    javacOptions {
+        option("-Adagger.fastInit=enabled")
+        option("-Adagger.formatGeneratedSource=disabled")
+        option("-Adagger.gradle.incremental")
+    }
+}
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion buildConfig.compileSdk
+    defaultConfig {
+        applicationId "dadoufi.musicmanager"
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
+        versionCode 1
+        versionName "0.1"
+
+        resConfigs "en"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "LASTFM_API_KEY", "\"" + propOrDef("LASTFM_API_KEY", "") + "\""
+        buildConfigField "String", "LASTFM_CLIENT_SECRET", "\"" + propOrDef("LASTFM_CLIENT_SECRET", "") + "\""
+        buildConfigField "String", "LASTFM_BASE_URL", "\"" + propOrDef("LASTFM_BASE_URL", "") + "\""
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*.version'
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy.force "android.arch.persistence.room:runtime:${versions.androidx.room}"
+        resolutionStrategy.force "com.android.tools.build.jetifier:jetifier-core:1.0.0-beta02"
+    }
+}
+
+
+/*project.android.buildTypes.all { buildType ->
+    buildType.javaCompileOptions.annotationProcessorOptions.arguments =
+            [
+                    // Validation is disabled in production to remove the runtime overhead
+                    validateEpoxyModelUsage     : String.valueOf(buildType.name == 'debug'),
+                    requireHashCodeInEpoxyModels: "true",
+                    requireAbstractEpoxyModels  : "true"
+            ]
+}*/
+
+dependencies {
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+
+    implementation "com.shopify:livedata-ktx:2.0.1"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:${versions.androidx.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:${versions.androidx.lifecycle}"
+    kapt "androidx.lifecycle:lifecycle-compiler:${versions.androidx.lifecycle}"
+
+    implementation "androidx.paging:paging-runtime:${versions.androidx.paging}"
+    implementation "androidx.paging:paging-rxjava2:${versions.androidx.paging}"
+
+    implementation "androidx.appcompat:appcompat:${versions.androidx.appcompat}"
+    implementation "com.google.android.material:material:${versions.material_design}"
+    implementation "androidx.recyclerview:recyclerview:${versions.androidx.recyclerview}"
+    implementation "androidx.constraintlayout:constraintlayout:${versions.androidx.constraint_layout}"
+    implementation "androidx.core:core-ktx:${versions.androidx.core_ktx}"
+
+    implementation "io.reactivex.rxjava2:rxjava:${versions.rx}"
+    implementation "io.reactivex.rxjava2:rxkotlin:${versions.rxkotlin}"
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxandroid}"
+
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+
+    implementation "com.google.dagger:dagger-android:${versions.dagger}"
+    implementation "com.google.dagger:dagger-android-support:${versions.dagger}"
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
+    kapt "com.google.dagger:dagger-android-processor:${versions.dagger}"
+
+    implementation "android.arch.navigation:navigation-runtime-ktx:${versions.androidx.navigation}"
+    implementation "android.arch.navigation:navigation-fragment-ktx:${versions.androidx.navigation}"
+
+    implementation "com.github.bumptech.glide:glide:${versions.glide}"
+    kapt "com.github.bumptech.glide:compiler:${versions.glide}"
+
+    implementation "com.airbnb.android:epoxy:${versions.epoxy}"
+    implementation "com.airbnb.android:epoxy-paging:${versions.epoxy}"
+    kapt "com.airbnb.android:epoxy-processor:${versions.epoxy}"
+
+    debugImplementation "nl.littlerobots.rxlint:rxlint:${versions.rxlint}"
+
+
+    implementation "androidx.paging:paging-common:${versions.androidx.paging}"
+    implementation "androidx.room:room-common:${versions.androidx.room}"
+    implementation "androidx.room:room-runtime:${versions.androidx.room}"
+    implementation "androidx.room:room-rxjava2:${versions.androidx.room}"
+    kapt "androidx.room:room-compiler:${versions.androidx.room}"
+
+
+    androidTestImplementation "androidx.test:runner:${versions.testing.test_runner}"
+    androidTestImplementation "androidx.test:rules:${versions.testing.test_rules}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.testing.espresso}"
+    androidTestImplementation "androidx.room:room-runtime:${versions.androidx.room}"
+
+
+    testImplementation "junit:junit:${versions.testing.junit}"
+    testImplementation "org.robolectric:robolectric:${versions.testing.robolectric}"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:${versions.testing.mockito_kotlin}"
+    testImplementation "androidx.test:core:1.0.0"
+    testImplementation "androidx.arch.core:core-testing:2.0.0"
+    // testImplementation "org.assertj:assertj-core:3.11.1"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
+
+}

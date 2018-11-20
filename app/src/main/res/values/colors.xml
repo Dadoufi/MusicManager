@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4768fd</color>
+    <color name="colorPrimaryDark">#3c54fe</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#fff</color>
+    <color name="grey_800">#424242</color>
+    <color name="white_transparent">#4DFFFFFF</color>
+
+    <color name="icon_tint_gray">@android:color/secondary_text_light_nodisable</color>
+    <color name="text_color_tertiary">#dadce0</color>
+    <color name="light_grey">#e6e6e6</color>
+    <color name="highlight_light">#33ffffff</color> <!-- 20% white -->
+    <!-- 20% black -->
+    <color name="indigo_transparent">#e54768fd</color> <!-- 90% indigo -->
+    <color name="swipe_background">#DEDEDE</color>
+
+
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+    <fade android:duration="650">
+        <targets>
+            <target android:excludeId="@android:id/statusBarBackground"/>
+            <target android:excludeId="@android:id/navigationBarBackground"/>
+            <target android:excludeId="@id/appbar"/>
+            <target android:excludeId="@id/toolbar"/>
+            <target android:excludeId="@id/back"/>
+        </targets>
+    </fade>
+
+
+</transitionSet>

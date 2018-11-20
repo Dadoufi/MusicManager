@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:startDestination="@id/favoriteAlbumFragment">
+
+
+    <fragment
+            android:id="@+id/topAlbumFragment"
+            android:name="dadoufi.musicmanager.ui.album.top.TopAlbumFragment"
+            android:label="TopAlbumFragment">
+        <action
+                android:id="@+id/action_show_album_details_fragment"
+                app:destination="@id/albumDetailsFragment"/>
+        <argument
+                android:name="artist"
+                app:argType="dadoufi.musicmanager.data.entities.ArtistEntity"/>
+        <argument
+                android:name="transitionName"
+                app:argType="string"/>
+    </fragment>
+    <fragment
+            android:id="@+id/favoriteAlbumFragment"
+            android:name="dadoufi.musicmanager.ui.album.favorite.FavoriteAlbumFragment"
+            android:label="FavoriteAlbumFragment">
+        <action
+                android:id="@+id/action_show_search_fragment"
+                app:destination="@id/searchArtistFragment"/>
+        <action
+                android:id="@+id/action_show_album_details_fragment"
+                app:destination="@+id/albumDetailsFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/searchArtistFragment"
+            android:name="dadoufi.musicmanager.ui.search.SearchFragment"
+            android:label="SearchArtistFragment">
+        <action
+                android:id="@+id/action_show_top_album_fragment"
+                app:destination="@id/topAlbumFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/albumDetailsFragment"
+            android:name="dadoufi.musicmanager.ui.details.AlbumDetailsFragment"
+            android:label="AlbumDetailsFragment">
+        <argument
+                android:name="album"
+                app:argType="dadoufi.musicmanager.data.entities.AlbumEntity"/>
+        <argument
+                android:name="transitionName"
+                app:argType="string"/>
+    </fragment>
+
+</navigation>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingStart="@dimen/margin_normal"
+              android:paddingEnd="@dimen/margin_normal"
+              android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/infoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MusicManager.SessionTitle.Display"
+            tools:text="Some Fancy title"/>
+
+
+    <TextView
+            android:id="@+id/infoArtistName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MusicManager.SecondaryHeader"
+            tools:text="TextView"/>
+
+    <TextView
+            android:id="@+id/albumInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MusicManager.ListSecondary"
+            tools:text="TextView"/>
+
+</LinearLayout>

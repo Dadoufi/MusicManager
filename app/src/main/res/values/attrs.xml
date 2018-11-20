@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="lineHeightHint" format="dimension"/>
+
+    <declare-styleable name="BaselineGridTextView">
+        <attr name="lineHeightMultiplierHint" format="float"/>
+        <attr name="lineHeightHint"/>
+        <attr name="maxLinesByHeight" format="boolean"/>
+        <attr name="android:textAppearance"/>
+        <attr name="android:fontFamily"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="ArtistHeader">
+        <attr name="android:width"/>
+        <attr name="android:paddingTop"/>
+        <attr name="android:textColor"/>
+        <attr name="android:fontFamily"/>
+        <attr name="artistTextSize" format="dimension"/>
+
+    </declare-styleable>
+</resources>
