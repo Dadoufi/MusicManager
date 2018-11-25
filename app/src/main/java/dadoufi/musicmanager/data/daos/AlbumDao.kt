@@ -54,6 +54,11 @@ abstract class AlbumDao : EntityDao<AlbumEntity>, PaginatedDao {
         favorite: Boolean
     )
 
+    @Query("SELECT favorite FROM albums WHERE mid = :mid")
+    abstract fun getAlbum(
+        mid: Long
+    ): Boolean
+
     @Query("SELECT MAX(page) FROM albums WHERE artist_name = :query")
     abstract override fun getLastPage(query: String?): Maybe<Int>
 

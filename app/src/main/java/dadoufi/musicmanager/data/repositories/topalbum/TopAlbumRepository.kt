@@ -131,10 +131,12 @@ class TopAlbumRepository @Inject constructor(
 
     override fun updateFavorite(album: AlbumEntity): Completable {
         return CompletableFromAction {
+            val b = albumDao.getAlbum(album.mid)
             albumDao.updateAlbum(
                 mid = album.mid,
-                favorite = !album.favorite
+                favorite = !b
             )
+
         }
             .subscribeOn(schedulers.database)
             .observeOn(schedulers.main)
